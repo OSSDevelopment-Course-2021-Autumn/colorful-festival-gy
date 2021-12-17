@@ -21,7 +21,7 @@ __cn_festivals__ = [
     'Dragon Boat Festival', 'Qixi Festival',
     'Ghost Festival', 'Mid-Autumn Festival',
     'Double Ninth Festival', 'HanYi Festival',
-    'Done Festival'
+    'Dong Festival'
 ]
 
 def set_favorite_festival(fest: str) -> None:
@@ -36,7 +36,7 @@ def cancel_favorite_festival(fest: str) -> None:
 def __print_festivals__(fests: List[Festival], year: int) -> None:
     for fest in fests:
         color = ''
-        if fest.get_lang('en') in __favorite_festival__:
+        if fest.get_lang('en') in __favorite_festival__ or any([i in __favorite_festival__ for i in fest.get_lang_list('zh')]):
             color = 'cyan'
         elif fest.get_lang('en') in __en_festivals__:
             color = 'blue'
